@@ -133,8 +133,8 @@ if (isset($_GET['age']) and isset($_GET['gender']) and isset($_GET['english'])){
 	<input type="submit" name="submit" value="Greet me now">
 </form>
 */
-
-// 6. 7. The Girl Soccer team 
+/*
+// 6. 7. The Girl Soccer team and achieve the same, without the else
 
 if (isset($_GET['age']) and isset($_GET['gender'])){
     $age = $_GET['age'];
@@ -160,3 +160,39 @@ if (isset($_GET['age']) and isset($_GET['gender'])){
     <input type="radio" name="gender" id="man" value="man">
     <br>
     <input type="submit" name="submit" value="Greet me now">
+*/
+
+// 8. "School sucks!" Exercise
+
+if (isset($_GET['note'])){
+    $note = $_GET['note'];
+
+    if ($note <= 4){
+        echo "This work is really bad. What a dumb kid! ";
+
+    } elseif ($note >= 5 and $note <= 9){
+        echo "This is not sufficient. More studying is required.";
+
+    } elseif ($note == 10){
+        echo "barely enough!";
+
+    } elseif ($note >= 11 and $note <= 14){
+        echo "Not bad!";
+
+    } elseif ($note >= 15 and $note <= 18){
+        echo "Bravo, bravissimo!";
+
+    } elseif ($note >= 19 and $note <= 20){
+        echo "Too good to be true : confront the cheater!";
+
+    } else {
+        echo "The note must be between 0 and 20";
+    }
+}
+?>
+<form method="get" action="">
+	<label for="note">What grade does your student have?</label>
+	<input type="number" name="note" id="note">
+    <br>
+    <input type="submit" name="submit" value="Greet me now">
+</form>

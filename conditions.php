@@ -19,7 +19,7 @@ function cleanup_room(){
     $room_is_filthy = false;
 }
 */
-
+/*
 // 1.2 clean your room Exercise, improved
 
 // Create the array of possible states
@@ -39,11 +39,44 @@ if( $room_filthiness == "health hazard" ){
 } else {
 	echo "Nothing to do, room is neat.";
 }
-
+*/
+/*
 // 2. "Different greetings according to time" Exercise
 
-$now = ; // How to get the current time in PHP ? Google is your friend ;-)
+$now = date('H:i'); // How to get the current time in PHP ? Google is your friend ;-)
 
 // Test the value of $now and display the right message according to the specifications.
-if( condition){
-} ...
+if ($now >= '05:00' and $now <= '09:00' or $now >= '09:01' and $now <= '12:00') {
+    echo "Bonjour";
+} elseif ($now >= '12:01' && $now <= '16:00') {
+    echo "Bon après-midi";
+} elseif ($now >= '16:01' && $now <= '21:00') {
+    echo "Bonne soirée";
+} else {
+    echo "Bonne nuit";
+}
+*/
+
+// 3. "Different greetings according to age" Exercise
+
+if (isset($_GET['age'])){
+	// Form processing
+    $age = $_GET['age'];
+
+    if ($age < 12) {
+        echo "Hello Kiddo!";
+    } elseif ($age > 12 and $age < 18) {
+        echo "Hello Teenager!";
+    } elseif ($age >= 18 and $age < 115) {
+        echo "Hello Adult!";
+    } else {
+        echo "Wow! Still alive? Are you a robot, like me? Can I hug you?";
+    }
+}
+// Form (incomplete)
+?>
+<form method="get" action="">
+	<label for="age">What is your age?</label>
+	<input type="number" name="age">
+	<input type="submit" name="submit" value="Greet me now">
+</form>

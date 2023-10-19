@@ -134,23 +134,19 @@ if (isset($_GET['age']) and isset($_GET['gender']) and isset($_GET['english'])){
 </form>
 */
 
-// 6. The Girl Soccer team 
+// 6. 7. The Girl Soccer team 
 
 if (isset($_GET['age']) and isset($_GET['gender'])){
     $age = $_GET['age'];
     $gender = $_GET['gender'];
 
-    if ($age >= 21 and $age <= 40){
-        if ($gender == "woman"){
-            echo "Welcome to the team!";
-        }else{
-            echo "Sorry, you don't fit the criteria";
+    if ($age >= 21 and $age <= 40 and $gender =="woman"){
+        echo "Welcome to the team!";
+        return;
         }
-    }else{
-        echo "Sorry, you don't fit the criteria";
+            echo "Sorry, you don't fit the criteria";
     }
-    
-}
+
 
 ?>
 

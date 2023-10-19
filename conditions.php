@@ -57,18 +57,34 @@ if ($now >= '05:00' and $now <= '09:00' or $now >= '09:01' and $now <= '12:00') 
 }
 */
 
-// 3. "Different greetings according to age" Exercise
+// 3. 4. "Different greetings according to age" Exercise
 
-if (isset($_GET['age'])){
+if (isset($_GET['age']) and isset($_GET['gender'])){
 	// Form processing
     $age = $_GET['age'];
+    $gender = $_GET['gender'];
 
     if ($age < 12) {
-        echo "Hello Kiddo!";
+        if($gender == "woman"){
+            echo "Hello Miss Kiddo!";
+        }else{
+            echo "Hello Mister Kiddo!";
+        }
+
     } elseif ($age > 12 and $age < 18) {
-        echo "Hello Teenager!";
+        if($gender == "woman"){
+            echo "Hello Miss Teenager!";
+        }else{
+            echo "Hello Mister Teenager!";
+        }
+
     } elseif ($age >= 18 and $age < 115) {
-        echo "Hello Adult!";
+        if($gender == "woman"){
+            echo "Hello Miss Adult!";
+        }else{
+            echo "Hello Mister Adult!";
+        }
+
     } else {
         echo "Wow! Still alive? Are you a robot, like me? Can I hug you?";
     }
@@ -78,5 +94,11 @@ if (isset($_GET['age'])){
 <form method="get" action="">
 	<label for="age">What is your age?</label>
 	<input type="number" name="age">
+    <label for="woman">Woman:</label>
+    <input type="radio" name="gender" id="woman" value="woman">
+    <label for="man">Man:</label>
+    <input type="radio" name="gender" id="man" value="man">
 	<input type="submit" name="submit" value="Greet me now">
 </form>
+
+

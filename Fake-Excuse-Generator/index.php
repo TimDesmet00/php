@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fake excuse generator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Excuse generator</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
@@ -20,7 +20,7 @@
                 <label for="kid-gender">Gender of your child: Boy:</label>
                 <input type="radio" name="gender" id="boy" value="boy">
                 <label for="kid-gender">Girl:</label>
-                <input type="radio" name="girl" id="girl" value="girl">
+                <input type="radio" name="gender" id="girl" value="girl">
             </p>
             <p>
                 <label for="teacher-name">Name of the teacher:</label>
@@ -52,18 +52,21 @@
         <?php
         if (isset($_GET['kid-name']) and isset($_GET['kid-gender']) and isset($_GET['teacher-name']) and isset($_GET['reason'])){
             $kidName = $_GET['kid-name'];
-            $kidGender = $_GET['kid-name'];
+            $kidGender = $_GET['kid-gender'];
             $teacherName = $_GET['teacher-name'];
             $reason = $_GET['reason'];
+            
+            $kidGender = ($kidGender == "boy") ? "My son" : "My daughter";
 
             $politeIntro = "Dear mister/miss";
             $politeEnding = "Thank you for your understanding. Sincerely, " . $kidName . "'s parents.";
 
             $excuse = "";
-            $excusesForIllness = array();
-            $excusesForDeath = array();
-            $excusesForActivity = array();
-            $excusesForTransportation = array();
+
+            $excusesForIllness = array("My child has caught the flu and cannot go to school.", " My child has a headache and cannot go to school.", "My child has a runny nose and cannot go to school.", "My child has a toothache and cannot go to school.", "My child has a broken finger and cannot go to school.");
+            $excusesForDeath = array("My child's tortoise has died and my child is too sad to go to school.", "My child's cat has died and my child is too sad to go to school.", "My child's dog has died and my child is too sad to go to school.", "My child's hamster has died and my child is too sad to go to school.", "My child's goldfish has died and my child is too sad to go to school.");
+            $excusesForActivity = array("my child has an exceptional aqua pony class that he cannot miss", "my child has an exceptional piano class that he cannot miss", "my child has an exceptional ballet class that she cannot miss", "my child has an exceptional karate class that he cannot miss", "my child has an exceptional soccer class that he cannot miss");
+            $excusesForTransportation = array("we had an accident on the way to school, luckily we are okay.", "public transport was once again on strike.", "the car broke down on the way to school.", "the car was stolen on the way to school.", "the helicopter runs out of battery.");
 
             $currentDate = date('l, j F Y');
 
@@ -82,13 +85,19 @@
                     break;
                 default:
                     $excuse = "Please select a reason for the absence";
+                    break;
             }
 
             echo "<p>" . $politeIntro . " " . $teacherName . ",</p>";
-            echo "<p>""please excuse the absence of, " . $kidGender . " " . $kidName . "for the" . $currentDate . "."</p>";
-
+            echo "<div>please excuse the absence of, " . $kidGender . " " . $kidName . "for the" . $currentDate . "</div>";
+            echo "<div>" . $kidGender . " " . $excuse . "</div>";
+            echo "<p>" . $politeEnding . "</p>";
         }
+        echo "<p>" . $politeIntro . " " . $teacherName . ",</p>";
         ?>
+
+        
+        
     </main>
 </body>
 </html>

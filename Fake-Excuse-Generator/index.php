@@ -56,9 +56,37 @@
             $teacherName = $_GET['teacher-name'];
             $reason = $_GET['reason'];
 
-            $excuse = "";
+            $politeIntro = "Dear mister/miss";
+            $politeEnding = "Thank you for your understanding. Sincerely, " . $kidName . "'s parents.";
 
-            
+            $excuse = "";
+            $excusesForIllness = array();
+            $excusesForDeath = array();
+            $excusesForActivity = array();
+            $excusesForTransportation = array();
+
+            $currentDate = date('l, j F Y');
+
+            switch ($reason){
+                case "illness":
+                    $excuse = $excusesForIllness[array_rand($excusesForIllness)];
+                    break;
+                case "death":
+                    $excuse = $excusesForDeath[array_rand($excusesForDeath)];
+                    break;
+                case "activity":
+                    $excuse = $excusesForActivity[array_rand($excusesForActivity)];
+                    break;
+                case "transportation":
+                    $excuse = $excusesForTransportation[array_rand($excusesForTransportation)];
+                    break;
+                default:
+                    $excuse = "Please select a reason for the absence";
+            }
+
+            echo "<p>" . $politeIntro . " " . $teacherName . ",</p>";
+            echo "<p>""please excuse the absence of, " . $kidGender . " " . $kidName . "for the" . $currentDate . "."</p>";
+
         }
         ?>
     </main>

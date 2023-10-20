@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excuse generator</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="./style/style.css">
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
     <header>
         <h1>Fake Excuse Generator</h1>
         <p>Generate a fake excuse for your absence</p>
-        <form method="get" action="">
+        <form method="get" action="index.php">
             <p>
                 <label for="kid-name">Name of your child:</label>
                 <input type="text" name="kid-name" id="kid-name">
             </p>
             <p>
                 <label for="kid-gender">Gender of your child: Boy:</label>
-                <input type="radio" name="gender" id="boy" value="boy">
+                <input type="radio" name="kid-gender" id="boy" value="boy">
                 <label for="kid-gender">Girl:</label>
-                <input type="radio" name="gender" id="girl" value="girl">
+                <input type="radio" name="kid-gender" id="girl" value="girl">
             </p>
             <p>
                 <label for="teacher-name">Name of the teacher:</label>
@@ -51,6 +51,7 @@
     <main>
         <?php
         if (isset($_GET['kid-name']) and isset($_GET['kid-gender']) and isset($_GET['teacher-name']) and isset($_GET['reason'])){
+            
             $kidName = $_GET['kid-name'];
             $kidGender = $_GET['kid-gender'];
             $teacherName = $_GET['teacher-name'];
@@ -87,13 +88,13 @@
                     $excuse = "Please select a reason for the absence";
                     break;
             }
-
+            echo "<div class='excuse'>";
             echo "<p>" . $politeIntro . " " . $teacherName . ",</p>";
-            echo "<div>please excuse the absence of, " . $kidGender . " " . $kidName . "for the" . $currentDate . "</div>";
-            echo "<div>" . $kidGender . " " . $excuse . "</div>";
+            echo "<div>please excuse the absence of " . $kidGender . " " . $kidName . " for the " . $currentDate . "</div>";
+            echo "<div>" . $excuse . "</div>";
             echo "<p>" . $politeEnding . "</p>";
+            echo "</div>";
         }
-        echo "<p>" . $politeIntro . " " . $teacherName . ",</p>";
         ?>
 
         

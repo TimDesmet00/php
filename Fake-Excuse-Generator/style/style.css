@@ -1,0 +1,16 @@
+body {
+  background: linear-gradient(180deg, darkred, violet);
+}
+body header {
+  text-align: center;
+}
+body header h1 {
+  text-decoration: underline;
+  color: antiquewhite;
+}
+body header p {
+  color: antiquewhite;
+}
+body main {
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */

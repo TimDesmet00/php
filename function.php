@@ -48,3 +48,22 @@ function normalReturn($string){
 
 echo "<br>";
 echo normalReturn("cæcotrophie, chænichthys, microsphæra, sphærotheca");
+
+function feedback($message, $cssClass) {
+    return "<div class=\"$cssClass\">$cssClass: $message.</div>";
+}
+
+echo feedback("Incorrect email address", "error");
+
+
+function generateRandomWord() {
+    $randonLengthWord = rand(1, 5);
+    $randomLengthWord2 = rand(7, 15);
+
+    $word = "";
+    $word2 = "";
+
+    for($i = 0; $i < $randonLengthWord; $i++) {
+        $word .= chr(rand(97, 122));
+    }
+}

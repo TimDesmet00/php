@@ -55,8 +55,8 @@ function feedback($message, $cssClass) {
 
 echo feedback("Incorrect email address", "error");
 
-echo "<h2>Generate a new word</h2>";
 
+echo "<h2>Generate a new word</h2>";
 
 function generateRandomWord() {
     $randomLengthWord = rand(1, 5);
@@ -103,3 +103,4 @@ calculate_cone_volume(5, 2);
 
 calculate_cone_volume(3, 4);
  
+calculate_cone_volume(10, 6);

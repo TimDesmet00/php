@@ -55,15 +55,51 @@ function feedback($message, $cssClass) {
 
 echo feedback("Incorrect email address", "error");
 
+echo "<h2>Generate a new word</h2>";
+
 
 function generateRandomWord() {
-    $randonLengthWord = rand(1, 5);
+    $randomLengthWord = rand(1, 5);
     $randomLengthWord2 = rand(7, 15);
 
     $word = "";
     $word2 = "";
 
-    for($i = 0; $i < $randonLengthWord; $i++) {
+    for($i = 0; $i < $randomLengthWord; $i++) {
         $word .= chr(rand(97, 122));
     }
+
+    for($i = 0; $i < $randomLengthWord2; $i++) {
+        $word2 .= chr(rand(97, 122));
+    }
+
+    return $word . " " . $word2;
 }
+
+if(isset($_GET["submit"])) {
+    echo generateRandomWord();
+}
+
+echo    "<pre>
+        <form action=\"\" method=\"Get\">
+            <input type=\"submit\" name=\"submit\" value=\"Generate\">
+        </form>
+        </pre>";
+
+function Minuscule($string) {
+    return strtolower($string);
+}
+
+echo "<br>";
+echo Minuscule("STOP YELLING I CAN'T HEAR MYSELF THINKING!!");
+
+function calculate_cone_volume($ray, $height) {
+    $volume = $ray * $ray * 3.14 * $height * (1/3);
+    echo 'The volume of a cone which ray is ' . $ray . ' and height is ' . $height . ' = ' . $volume . ' cm<sup>3</sup><br />';
+}
+
+echo "<br>";
+calculate_cone_volume(5, 2);
+
+calculate_cone_volume(3, 4);
+ 

@@ -104,3 +104,5 @@ calculate_cone_volume(5, 2);
 calculate_cone_volume(3, 4);
  
 calculate_cone_volume(10, 6);
+calculate_cone_volume(8, 6);
+calculate_cone_volume(2, 6);
